@@ -34,6 +34,7 @@ int main(int argc, char *argv[]) {
 	int vowel = 0;
 	int consonant = 0;
 	int menu = 0;
+	printf("Enter Strings (# to stop):\n");
 	while(menu != 4){
 		scanf("%s", input);
 		while(input[0] != '#'){
@@ -196,14 +197,21 @@ int main(int argc, char *argv[]) {
 						most = histogram[25];
 					}
 				}
+				c++;
 			}
 			scanf("%s", input);
 		}
-		menu = getMenuOption();
-		if(menu == 1){
-			vowAndCon(vowel, consonant);
-		} else if(menu == 2){
-			displayHistogram(most, histogram);
+
+		menu = 0;
+		while(menu != 3 && menu != 4){
+			menu = getMenuOption();
+			if(menu == 1){
+				vowAndCon(vowel, consonant);
+			} else if(menu == 2){
+				displayHistogram(most, histogram);
+			} else if(menu == 3){
+				printf("Enter Strings (# to stop):\n");
+			}
 		}
 	}
 	printf("Exiting...\n");
